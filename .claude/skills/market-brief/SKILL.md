@@ -13,9 +13,9 @@ Gather, check, write, and report. Use these exact sources:
 2. Exchange rates from the ECB:
    `curl -s "https://api.frankfurter.app/latest?from=USD&to=EUR,BRL"`
    The rates are at `.rates.EUR` and `.rates.BRL`.
-3. The S&P 500 daily quote, as CSV:
-   `curl -s "https://stooq.com/q/l/?s=^spx&f=sd2t2ohlcv&e=csv"`
-   The close is the seventh field of the second line.
+3. The S&P 500 quote, as JSON:
+   `curl -s -A "Mozilla/5.0" "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?interval=1d&range=1d"`
+   The price is at `.chart.result[0].meta.regularMarketPrice`.
 
 Then:
 
